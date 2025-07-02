@@ -1,11 +1,11 @@
-SOURCE =  Bureaucrat.cpp main.cpp
+SOURCE =  Bureaucrat.cpp main.cpp Form.cpp
 
 OBJECT = $(SOURCE:.cpp=.o)
 
 
 CXX = c++
 
-NAME = Bureaucrat
+NAME = Form
 
 CFLAGS =-Wall -Werror -Wextra -std=c++98
 

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 
+class Form;
+
 class Bureaucrat
 {
 public:
@@ -30,13 +32,14 @@ private:
 
 public:
     Bureaucrat(std::string name, unsigned int grade);
-    Bureaucrat(const Bureaucrat &cpy);
-    Bureaucrat &operator=(const Bureaucrat &cpy);
+    Bureaucrat(const Bureaucrat &b);
+    Bureaucrat &operator=(const Bureaucrat &b);
     ~Bureaucrat();
     std::string getName() const;
     unsigned int getGrade() const;
     void incrementGrade();
     void decrement_grade();
+    void signForm(Form &f);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);
