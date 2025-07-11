@@ -1,15 +1,15 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-const char *Bureaucrat::GradeTooHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Bureaucrat::GradeTooHighException";
 }
-const char *Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Bureaucrat::GradeTooLowException";
 }
-const char *Bureaucrat::EmptyNameException::what() const throw()
+const char* Bureaucrat::EmptyNameException::what() const throw()
 {
     return "Bureaucrat::EmptyNameException";
 }
@@ -25,21 +25,19 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : Name(name)
     Grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &b)
+Bureaucrat::Bureaucrat(const Bureaucrat& b)
 {
     *this = b;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
     if (&b != this)
         Grade = b.Grade;
     return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-}
+Bureaucrat::~Bureaucrat() {}
 
 std::string Bureaucrat::getName() const
 {
@@ -58,7 +56,7 @@ void Bureaucrat::incrementGrade()
     Grade--;
 }
 
-    void executeForm(AForm const & form);
+void executeForm(AForm const& form);
 
 void Bureaucrat::decrement_grade()
 {
@@ -67,22 +65,47 @@ void Bureaucrat::decrement_grade()
     Grade++;
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signForm(AForm& f)
 {
     try
     {
         f.beSigned(*this);
         std::cout << Name << " signed " << f.getName() << "\n";
     }
-    catch (const std::exception &e)
+    catch (const std::exception& e)
     {
-        std::cerr << Name << " couldn't sign " << f.getName() << " because " << e.what() << "\n";
+        std::cerr << Name << " couldn't sign " << f.getName() << " because " << e.what()
+                  << "\n";
     }
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs)
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& rhs)
 {
     out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
     return out;
 }
 
+void Bureaucrat::executeForm(AForm const& form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << Name << " executed " << form.getName() << "\n";
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << Name << " did not executed " << form.getName()
+                  << " for this reason : " << e.what() << '\n';
+    }
+
+    try
+    {
+        form.execute(*this);
+        std::cout << Name << "executed " << form.getName() << "\n";
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << Name << "is not executed " << form.getName() << "for this reason -> "
+                  << e.what() << "\n";
+    }
+}

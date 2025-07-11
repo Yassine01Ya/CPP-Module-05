@@ -1,6 +1,19 @@
 #pragma once
 #include "AForm.hpp"
 
+
+#define ASCII_TREE \
+"       ^\n" \
+"      ^^^\n" \
+"     ^^^^^\n" \
+"    ^^^^^^^\n" \
+"   ^^^^^^^^^\n" \
+"  ^^^^^^^^^^^\n" \
+" ^^^^^^^^^^^^^\n" \
+"^^^^^^^^^^^^^^^\n" \
+"      ###\n" \
+"      ###\n"; \
+
 class ShrubberyCreationForm : public AForm
 {
 private:

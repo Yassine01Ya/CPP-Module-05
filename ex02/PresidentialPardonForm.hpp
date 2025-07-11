@@ -8,8 +8,8 @@ private:
 
 public:
     PresidentialPardonForm(std::string target);
-    PresidentialPardonForm(const PresidentialPardonForm &cpy);
-    PresidentialPardonForm &operator=(const PresidentialPardonForm &cpy);
+    PresidentialPardonForm(const PresidentialPardonForm& cpy);
+    PresidentialPardonForm& operator=(const PresidentialPardonForm& cpy);
     ~PresidentialPardonForm();
-    PresidentialPardonForm(std::string target);
+    void execute(Bureaucrat const& executor) const;
 };

@@ -39,7 +39,7 @@ public:
     unsigned int getGrade() const;
     void incrementGrade();
     void decrement_grade();
-    void signForm(Form &f);
+    void signForm(AForm &f);
     void executeForm(AForm const &form); // TODO
 };
 
