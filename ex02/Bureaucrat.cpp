@@ -98,14 +98,4 @@ void Bureaucrat::executeForm(AForm const& form)
                   << " for this reason : " << e.what() << '\n';
     }
 
-    try
-    {
-        form.execute(*this);
-        std::cout << Name << "executed " << form.getName() << "\n";
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << Name << "is not executed " << form.getName() << "for this reason -> "
-                  << e.what() << "\n";
-    }
 }

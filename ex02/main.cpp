@@ -45,7 +45,7 @@ int main(int c, char **v)
                 break;
             }
 
-            std::cout << "Do you want to sign form " << form->get_name() << " [y/n]: ";
+            std::cout << "Do you want to sign form " << form->getName() << " [y/n]: ";
             std::cin >> reply;
             if (reply == "y")
             {
@@ -53,7 +53,7 @@ int main(int c, char **v)
                           << *form;
                 bureaucrat.signForm(*form);
             }
-            std::cout << "Do you want to execute form " << form->get_name() << " [y/n]: ";
+            std::cout << "Do you want to execute form " << form->getName() << " [y/n]: ";
             std::cin >> reply;
             if (reply == "y")
             {
