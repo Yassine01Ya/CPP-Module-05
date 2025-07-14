@@ -1,7 +1,7 @@
 #pragma once
-#include <string>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 class AForm;
 
@@ -11,36 +11,36 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw();
+        const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw();
+        const char* what() const throw();
     };
 
     class EmptyNameException : public std::exception
     {
     public:
-        const char *what() const throw();
+        const char* what() const throw();
     };
 
 private:
     const std::string Name;
-    unsigned int Grade;
+    unsigned int      Grade;
 
 public:
     Bureaucrat(std::string name, unsigned int grade);
-    Bureaucrat(const Bureaucrat &b);
-    Bureaucrat &operator=(const Bureaucrat &b);
+    Bureaucrat(const Bureaucrat& b);
+    Bureaucrat& operator=(const Bureaucrat& b);
     ~Bureaucrat();
-    std::string getName() const;
+    std::string  getName() const;
     unsigned int getGrade() const;
-    void incrementGrade();
-    void decrement_grade();
-    void signForm(AForm &f);
-    void executeForm(AForm const &form); // TODO
+    void         incrementGrade();
+    void         decrement_grade();
+    void         signForm(AForm& f);
+    void         executeForm(AForm const& form); // TODO
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& rhs);

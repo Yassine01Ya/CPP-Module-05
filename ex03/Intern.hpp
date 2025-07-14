@@ -1,8 +1,8 @@
 #pragma once
-#include <string>
-#include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <string>
 
 class Intern
 {
@@ -10,14 +10,14 @@ public:
     class NoFormNameException : public std::exception
     {
     public:
-        const char *what() const throw();
+        const char* what() const throw();
     };
 
 private:
     ShrubberyCreationForm  Shrubbery;
     PresidentialPardonForm Presidential;
     RobotomyRequestForm    Robotomy;
-    AForm*  Forms[3];
+    AForm*                 Forms[3];
 
 public:
     Intern();

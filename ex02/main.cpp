@@ -1,14 +1,14 @@
-#include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 #include <iostream>
 
-int main(int c, char **v)
+int main(int c, char** v)
 {
     if (c == 3)
     {
-        std::string reply;
+        std::string  reply;
         unsigned int grade;
 
         std::cout << "Enter desired bureaucrat grade: ";
@@ -16,11 +16,11 @@ int main(int c, char **v)
 
         try
         {
-            Bureaucrat bureaucrat(v[1], grade);
-            ShrubberyCreationForm ShForm = ShrubberyCreationForm(v[2]);
+            Bureaucrat             bureaucrat(v[1], grade);
+            ShrubberyCreationForm  ShForm = ShrubberyCreationForm(v[2]);
             PresidentialPardonForm ppForm = PresidentialPardonForm(v[2]);
-            RobotomyRequestForm rrForm = RobotomyRequestForm(v[2]);
-            AForm *form;
+            RobotomyRequestForm    rrForm = RobotomyRequestForm(v[2]);
+            AForm*                 form;
         choose_form:
             std::cout << "1: ShrubberyCreationForm\n";
             std::cout << "2: PresidentialPardonForm\n";
@@ -49,26 +49,23 @@ int main(int c, char **v)
             std::cin >> reply;
             if (reply == "y")
             {
-                std::cout << bureaucrat << "is going to sign\n"
-                          << *form;
+                std::cout << bureaucrat << "is going to sign\n" << *form;
                 bureaucrat.signForm(*form);
             }
             std::cout << "Do you want to execute form " << form->getName() << " [y/n]: ";
             std::cin >> reply;
             if (reply == "y")
             {
-                std::cout << bureaucrat << "is going to execute\n"
-                          << *form;
+                std::cout << bureaucrat << "is going to execute\n" << *form;
                 bureaucrat.executeForm(*form);
             }
         }
-        catch (const std::exception &e)
+        catch (const std::exception& e)
         {
             std::cerr << "Main Catched an exception: " << e.what() << "\n";
         }
     }
     else
-        std::cout << "Usage\n"
-                  << v[0] << " [Name of The Bureaucrat] [Name of Target]\n";
+        std::cout << "Usage\n" << v[0] << " [Name of The Bureaucrat] [Name of Target]\n";
     return 0;
 }

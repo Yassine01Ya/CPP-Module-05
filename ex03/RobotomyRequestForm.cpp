@@ -18,7 +18,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& c
     if (this != &cpy)
     {
         (AForm&)* this = cpy;
-        Target = cpy.Target;
+        Target         = cpy.Target;
     }
     return *this;
 }
@@ -42,4 +42,3 @@ void RobotomyRequestForm::setTarget(std::string newTarget)
         throw AForm::EmptyTargetException();
     Target = newTarget;
 }
-

@@ -88,4 +88,3 @@ std::ostream& operator<<(std::ostream& out, const AForm& rhs)
         << "requires " << rhs.getGradeToExec() << " grade or higher to execute\n";
     return out;
 }
-

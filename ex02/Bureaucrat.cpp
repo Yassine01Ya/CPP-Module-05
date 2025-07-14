@@ -97,5 +97,4 @@ void Bureaucrat::executeForm(AForm const& form)
         std::cerr << Name << " did not executed " << form.getName()
                   << " for this reason : " << e.what() << '\n';
     }
-
 }

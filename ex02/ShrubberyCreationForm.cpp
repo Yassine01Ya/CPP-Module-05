@@ -25,7 +25,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     AForm::execute(executor);
-    std::ofstream file_shrubbery (Target + "_shrubbery");
+    std::ofstream file_shrubbery ((Target + "_shrubbery").c_str());
     file_shrubbery << ASCII_TREE;
     file_shrubbery.close();
 

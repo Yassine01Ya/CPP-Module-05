@@ -1,13 +1,13 @@
 #include "Intern.hpp"
 #include <iostream>
 
-int main(int c, char **v)
+int main(int c, char** v)
 {
     if (c == 2)
     {
-        std::string reply;
-        std::string form_name;
-        std::string form_target;
+        std::string  reply;
+        std::string  form_name;
+        std::string  form_target;
         unsigned int grade;
 
         std::cout << "Enter desired bureaucrat grade: ";
@@ -16,8 +16,8 @@ int main(int c, char **v)
         try
         {
             Bureaucrat bureaucrat(v[1], grade);
-            Intern intern;
-            AForm *form;
+            Intern     intern;
+            AForm*     form;
 
             std::cout << "ShrubberyCreationForm\n";
             std::cout << "PresidentialPardonForm\n";
@@ -31,26 +31,23 @@ int main(int c, char **v)
             std::cin >> reply;
             if (reply == "y")
             {
-                std::cout << bureaucrat << "is going to sign\n"
-                          << *form;
+                std::cout << bureaucrat << "is going to sign\n" << *form;
                 bureaucrat.signForm(*form);
             }
             std::cout << "Do you want to execute form " << form->getName() << " [y/n]: ";
             std::cin >> reply;
             if (reply == "y")
             {
-                std::cout << bureaucrat << "is going to execute\n"
-                          << *form;
+                std::cout << bureaucrat << "is going to execute\n" << *form;
                 bureaucrat.executeForm(*form);
             }
         }
-        catch (const std::exception &e)
+        catch (const std::exception& e)
         {
             std::cerr << "Main Catched an exception: " << e.what() << "\n";
         }
     }
     else
-        std::cout << "Usage\n"
-                  << v[0] << " [Name of The Bureaucrat]\n";
+        std::cout << "Usage\n" << v[0] << " [Name of The Bureaucrat]\n";
     return 0;
 }

@@ -25,7 +25,7 @@ Intern& Intern::operator=(const Intern& i)
     {
         Shrubbery    = i.Shrubbery;
         Presidential = i.Presidential;
-        Robotomy = i.Robotomy;
+        Robotomy     = i.Robotomy;
     }
     return *this;
 }
@@ -34,7 +34,7 @@ Intern::~Intern() {}
 
 AForm* Intern::MakeForm(std::string FormName, std::string TargetName)
 {
-    for(int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
         if (Forms[i]->getName() == FormName)
         {

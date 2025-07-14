@@ -1,8 +1,8 @@
 #pragma once
 #include "Bureaucrat.hpp"
-#include <string>
-#include <iostream>
 #include <exception>
+#include <iostream>
+#include <string>
 
 class AForm
 {
@@ -18,7 +18,7 @@ public:
     public:
         const char* what() const throw();
     };
-    
+
     class EmptyNameException : public std::exception
     {
     public:
@@ -28,7 +28,7 @@ public:
     class EmptyTargetException : public std::exception
     {
     public:
-        const char *what() const throw();
+        const char* what() const throw();
     };
 
     class FormNotSignedException : public std::exception
@@ -36,24 +36,25 @@ public:
     public:
         const char* what() const throw();
     };
+
 private:
-    const std::string Name;
-    bool isSigned;
+    const std::string  Name;
+    bool               isSigned;
     const unsigned int gradeToSign;
     const unsigned int gradeToExec;
 
 public:
     AForm(const std::string name, const unsigned int toSign, const unsigned int toExec);
-    AForm(const AForm &f);
-    AForm &operator=(const AForm &f);
+    AForm(const AForm& f);
+    AForm& operator=(const AForm& f);
     virtual ~AForm();
-    std::string getName() const;
-    bool getIsSigned() const;
+    std::string  getName() const;
+    bool         getIsSigned() const;
     unsigned int getGradeToSign() const;
     unsigned int getGradeToExec() const;
-    void beSigned(const Bureaucrat& b);
-    virtual void execute(Bureaucrat const & executor) const;
+    void         beSigned(const Bureaucrat& b);
+    virtual void execute(Bureaucrat const& executor) const;
     virtual void setTarget(std::string newTarget) = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, const AForm &rhs);
+std::ostream& operator<<(std::ostream& out, const AForm& rhs);

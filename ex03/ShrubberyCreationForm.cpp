@@ -8,27 +8,28 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
         throw EmptyTargetException();
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy) : AForm(cpy), Target(cpy.Target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy)
+    : AForm(cpy), Target(cpy.Target)
 {
 }
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& cpy)
 {
     if (this != &cpy)
     {
-        (AForm&)*this = cpy;
-        Target = cpy.Target;
+        (AForm&)* this = cpy;
+        Target         = cpy.Target;
     }
     return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
+{
     AForm::execute(executor);
-    std::ofstream file_shrubbery (Target + "_shrubbery");
+    std::ofstream file_shrubbery((Target + "_shrubbery").c_str());
     file_shrubbery << ASCII_TREE;
     file_shrubbery.close();
-
 }
 void ShrubberyCreationForm::setTarget(std::string newTarget)
 {

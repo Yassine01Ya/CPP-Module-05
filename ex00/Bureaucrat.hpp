@@ -1,7 +1,7 @@
 #pragma once
-#include <string>
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 class Bureaucrat
 {
@@ -26,17 +26,17 @@ public:
 
 private:
     const std::string Name;
-    unsigned int Grade;
+    unsigned int      Grade;
 
 public:
     Bureaucrat(std::string name, unsigned int grade);
-    Bureaucrat(const Bureaucrat &cpy);
-    Bureaucrat &operator=(const Bureaucrat &cpy);
+    Bureaucrat(const Bureaucrat& cpy);
+    Bureaucrat& operator=(const Bureaucrat& cpy);
     ~Bureaucrat();
-    std::string getName() const;
+    std::string  getName() const;
     unsigned int getGrade() const;
-    void incrementGrade();
-    void decrement_grade();
+    void         incrementGrade();
+    void         decrement_grade();
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& rhs);

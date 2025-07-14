@@ -8,9 +8,9 @@ private:
 
 public:
     RobotomyRequestForm(std::string target);
-    RobotomyRequestForm(const RobotomyRequestForm &cpy);
-    RobotomyRequestForm &operator=(const RobotomyRequestForm &cpy);
+    RobotomyRequestForm(const RobotomyRequestForm& cpy);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& cpy);
     ~RobotomyRequestForm();
-    void execute(Bureaucrat const &executor) const;
+    void execute(Bureaucrat const& executor) const;
     void setTarget(std::string newTarget);
 };

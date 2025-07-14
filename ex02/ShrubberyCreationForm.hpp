@@ -1,18 +1,18 @@
 #pragma once
 #include "AForm.hpp"
+#include <string>
 
-
-#define ASCII_TREE \
-"       ^\n" \
-"      ^^^\n" \
-"     ^^^^^\n" \
-"    ^^^^^^^\n" \
-"   ^^^^^^^^^\n" \
-"  ^^^^^^^^^^^\n" \
-" ^^^^^^^^^^^^^\n" \
-"^^^^^^^^^^^^^^^\n" \
-"      ###\n" \
-"      ###\n"; \
+#define ASCII_TREE                                                                       \
+    "       ^\n"                                                                         \
+    "      ^^^\n"                                                                        \
+    "     ^^^^^\n"                                                                       \
+    "    ^^^^^^^\n"                                                                      \
+    "   ^^^^^^^^^\n"                                                                     \
+    "  ^^^^^^^^^^^\n"                                                                    \
+    " ^^^^^^^^^^^^^\n"                                                                   \
+    "^^^^^^^^^^^^^^^\n"                                                                  \
+    "      ###\n"                                                                        \
+    "      ###\n";
 
 class ShrubberyCreationForm : public AForm
 {
@@ -21,8 +21,8 @@ private:
 
 public:
     ShrubberyCreationForm(std::string target);
-    ShrubberyCreationForm(const ShrubberyCreationForm &cpy);
-    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &cpy);
+    ShrubberyCreationForm(const ShrubberyCreationForm& cpy);
+    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& cpy);
     ~ShrubberyCreationForm();
-    void execute(Bureaucrat const &executor) const;
+    void execute(Bureaucrat const& executor) const;
 };

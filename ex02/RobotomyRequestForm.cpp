@@ -18,7 +18,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& c
     if (this != &cpy)
     {
         (AForm&)* this = cpy;
-        Target = cpy.Target;
+        Target         = cpy.Target;
     }
     return *this;
 }
@@ -32,7 +32,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const
     srand(time(0));
     int randomNumber = rand() % 2;
     if (randomNumber)
-        std::cout << Target << "has been robotomized successfully\n ";
+        std::cout << Target << " has been robotomized successfully\n ";
     else
         std::cout << "The robotomy for " << Target << " Failed.\n";
 }
